@@ -6,14 +6,14 @@ typedef struct
 {
     char matricula[8];
     char nombre[20];
-    char carrera[3];
+    char carrera[4];
     float puntos;
     int creditos;
 } EST;
 
-/*Realice una funciÛn void EstudiantesPromedios(EST *data,int n),  que imprima los estudiantes
-que est·n por encima del Ìndice promedio, de un total de n estudiantes y que sean de la carrera
-de ISC o ITT. El Ìndice es igual a puntos entre crÈditos.  */
+/*Realice una funci√≥n void EstudiantesPromedios(EST *data,int n),  que imprima los estudiantes
+que est√°n por encima del √≠ndice promedio, de un total de n estudiantes y que sean de la carrera
+de ISC o ITT. El √≠ndice es igual a puntos entre cr√©ditos.  */
 
 void EstudiantesPromedios(EST *data,int n);
 
@@ -54,10 +54,10 @@ void EstudiantesPromedios(EST *data,int n)
     for(int i=0; i<n; i++)
     {
         indice = (data+i)->puntos / (data+i)->creditos;
-        if(indice > indice_prom && ( (strcmp((data+i)->carrera, "ITT")) || (strcmp((data+i)->carrera, "ISC"))))
+        if(indice > indice_prom && ( (strcmp((data+i)->carrera, "ITT")==0) || (strcmp((data+i)->carrera, "ISC") == 0)))
         {
 
-            printf("\n%s \t%s \t%s \t\t%2.f \t\t%d \t\t%.2f",(data+i)->matricula,(data+i)->nombre,(data+i)->carrera,(data+i)->puntos,(data+i)->creditos,indice);
+            printf("\n%s \t%s \t%s \t\t%.2f \t\t%d \t\t%.2f",(data+i)->matricula,(data+i)->nombre,(data+i)->carrera,(data+i)->puntos,(data+i)->creditos,indice);
         }
     }
     printf("\n\n");
